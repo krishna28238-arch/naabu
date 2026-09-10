@@ -167,7 +167,7 @@ func TestParsePortsAllSpecifiedPortsExcluded(t *testing.T) {
 			}
 			got, err := ParsePorts(options)
 			if tt.wantErr {
-				assert.NotNil(t, err)
+				assert.EqualError(t, err, "no ports to scan: all specified ports were excluded")
 			} else {
 				assert.Nil(t, err)
 			}
